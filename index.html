@@ -1,0 +1,104 @@
+<!--
+This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE HTML>
+<html manifest="">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="sharedcardstooltip.css?v=1.0.0">
+        <meta http-equiv="Content-Language" content="en, de, ru">
+        <title>Fast battleforge cards search</title>
+        <script src="apptranslations.js"></script>
+        <meta name="description" content="BattleForge Card search covering the Twilight, Renegade, Lost Souls, and Amii editions. Featuring fast searches and basic deck building.">
+        <meta name="keywords" content="BattleForge Battle Forge Card Database Search Deck Building Twilight Renegade Lost Souls Amii">
+        <style>
+            .kill-margins .x-tab-default-top {
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                border-radius: 0;
+                padding: 0px 10px 0px 10px;
+                border-width: 0;
+                border-style: solid;
+                background-color: transparent;
+            }
+            .nokill-margins .x-tab-default-top {
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+                border-radius: 0;
+                padding: 8px 10px 8px 10px;
+                border-width: 0;
+                border-style: solid;
+                background-color: transparent;
+            }
+        </style>
+        <script type="text/javascript">
+
+
+
+            var Ext = Ext || {}; // Ext namespace won't be defined yet...
+
+            // This function is called by the Microloader after it has performed basic
+            // device detection. The results are provided in the "tags" object. You can
+            // use these tags here or even add custom tags. These can be used by platform
+            // filters in your manifest or by platformConfig expressions in your app.
+            //
+            Ext.beforeLoad = function (tags) {
+                var s = location.search, // the query string (ex "?foo=1&bar")
+                        profile;
+
+                // For testing look for "?classic" or "?modern" in the URL to override
+                // device detection default.
+                //
+                if (s.match(/\bclassic\b/)) {
+                    profile = 'classic';
+                } else if (s.match(/\bmodern\b/)) {
+                    profile = 'modern';
+                } else {
+                    profile = tags.desktop ? 'classic' : 'modern';
+                    //profile = tags.phone ? 'modern' : 'classic';
+                }
+                profile = 'classic';
+                Ext.manifest = profile; // this name must match a build profile name
+
+                // This function is called once the manifest is available but before
+                // any data is pulled from it.
+                //
+                //return function (manifest) {
+                // peek at / modify the manifest object
+                //};
+            };
+
+
+
+        </script>
+
+        <script type="text/javascript" src="bootstrap-update.js"></script>
+        <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+        <script id="microloader" data-app="f7cdfd05-2248-44b0-9af7-017f82277105" type="text/javascript" src="bootstrap.js"></script>
+
+    </head>
+    <body style="background-color:#000000;background:#000 url('img/back.jpg') no-repeat center center;background-size:cover;background-attachment: fixed;">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+
+    </body>
+</html>

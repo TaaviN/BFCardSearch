@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <title>Battleforge card search</title>
+
+        <script type="text/javascript" src="applicationinit.js"></script>
+        <script type="text/javascript" src="bootstrap-update.js"></script>
+        <script type="text/javascript" src="preload/"></script>
+        <script id="microloader" data-app="f7cdfd05-2248-44b0-9af7-017f82277105" type="text/javascript"  src="application.js"></script>
+    </head>
+    <body style="background-color:#000000;background:#000 url('img/back.jpg') no-repeat center center;background-size:cover;background-attachment: fixed;">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+        <div style="clear: both"></div>
+        <div style=" position: fixed;bottom: 0;width: 100%;background-color: #5fa2dd;padding:2px;color:#fff">Legal: Images and card text are copyright of Electronic Arts Inc.</div>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1334906616557193',
+                    xfbml: true,
+                    version: 'v2.8'
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>

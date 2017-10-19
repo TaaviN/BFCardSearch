@@ -1,0 +1,8 @@
+
+User-agent: *  
+Disallow: /preload/ 
+Disallow: /shared/
+Disallow: /shareme/
+Disallow: /classic/ext/
+Disallow: /classic/font-ext/
+
