@@ -272,6 +272,17 @@ Ext.define('slrcards.view.CardsBorder', {
                         },
                         {
                             xtype: 'button',
+                            text: meview.getLngString('GitHub'),
+                            iconCls: 'x-fa fa-code-fork',
+                            tooltip: meview.getLngString('GitHub Repo'),
+                            ui: 'default',
+                            href: 'https://github.com/TaaviN/BFCardSearch',
+                            itemId: 'topbargitbutton',
+                            hrefTarget: '_blank'
+
+                        },
+                       {
+                            xtype: 'button',
                             text: meview.getLngString('SLR Forum'),
                             iconCls: 'x-fa fa-folder-open-o',
                             tooltip: meview.getLngString('Skylords Reborn forum'),
@@ -595,21 +606,12 @@ Ext.define('slrcards.view.CardsBorder', {
                         }
 
                     ]
-                },
-                {
-                    xtype: 'panel',
-                    dock: 'bottom',
-                    ui: 'blue',
-                    bodyStyle: "background-image:url('img/pattern.png')  !important;",
-                    cls: 'pattern-bg boxshadow-top',
-                    html: '<div style="padding-left:5px;padding-bottom:3px;padding-top:2px;">Legal: Images and card text are copyright of Electronic Arts Inc. <div style="float:right;padding-right:10px">Made by <a style="color:#fff;text-decoration:none" href="https://forum.skylords.eu/index.php?/profile/13016-ice/">ICE</a> Copyright 2017</div></div>'
-
-                }
+                } 
             ],
             items: [
                 {
                     region: 'west',
-                    width: 220,
+                    width: 255,
                     title: meview.getLngString('Search'),
                     iconCls: 'fa fa-search',
                     collapsed: false,
@@ -762,10 +764,10 @@ Ext.define('slrcards.view.CardsBorder', {
                                         },
                                         {
                                             xtype: 'button',
-                                            iconCls: 'fa fa-share',
+                                            iconCls: 'x-fa fa-share',
                                             align: 'right',
                                             ui: 'default',
-                                            style: "margin-left:20px;",
+                                            style: "margin-left:15px;",
                                             itemId: 'searchsharebutton',
                                             tooltip: meview.getLngString('Share your current search'),
                                             handler: function () {
@@ -831,6 +833,21 @@ Ext.define('slrcards.view.CardsBorder', {
                                                     }
                                                     _cardShareOverlay.show();
                                                 }
+                                            }
+                                        },
+                                        {
+                                             
+                                            xtype: 'button',
+                                            iconCls: 'x-fa fa-undo',
+                                            tooltip: meview.getLngString('Reset search'),
+                                            align: 'right',
+                                            ui: 'default',
+                                            style: "margin-left:5px;",
+                                            handler: function (btn) {
+                                                 _app.clearSearchAnddoCardSearchAuto(); 
+                                                 
+
+
                                             }
                                         }
                                     ]
@@ -2071,7 +2088,16 @@ Ext.define('slrcards.view.CardsBorder', {
                         }
                     ]
                 }
-            ]
+            ],
+            bbar:{
+                    xtype: 'panel',
+                    dock: 'bottom',
+                    ui: 'blue',
+                    bodyStyle: "background-image:url('img/pattern.png')  !important;",
+                    cls: 'pattern-bg boxshadow-top',
+                    html: '<div style="padding-left:5px;padding-bottom:3px;padding-top:2px;">Legal: Images and card text are copyright of Electronic Arts Inc. <div style="float:right;padding-right:10px">Made by <a style="color:#fff;text-decoration:none" href="https://forum.skylords.eu/index.php?/profile/13016-ice/">ICE</a> Copyright 2017</div></div>'
+
+                }
         });
 
         this.callParent(arguments);

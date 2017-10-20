@@ -46,16 +46,7 @@ Ext.define('slrcards.view.MapsBorder', {
 
                         }
                     ]
-                },
-                {
-                    xtype: 'panel',
-                    dock: 'bottom',
-                    ui: 'blue',
-                    bodyStyle: "background-image:url('img/pattern.png')  !important;",
-                    cls: 'pattern-bg boxshadow-top',
-                    html: '<div style="padding-left:5px;padding-bottom:3px;padding-top:2px;">Legal: Images and card text are copyright of Electronic Arts Inc.</div>'
-
-                }
+                } 
             ],
             items: [
                 {
@@ -83,7 +74,16 @@ Ext.define('slrcards.view.MapsBorder', {
                     items: [
                     ]
                 }
-            ]
+            ],
+            bbar:{
+                    xtype: 'panel',
+                    dock: 'bottom',
+                    ui: 'blue',
+                    bodyStyle: "background-image:url('img/pattern.png')  !important;",
+                    cls: 'pattern-bg boxshadow-top',
+                    html: '<div style="padding-left:5px;padding-bottom:3px;padding-top:2px;">Legal: Images and card text are copyright of Electronic Arts Inc. <div style="float:right;padding-right:10px">Made by <a style="color:#fff;text-decoration:none" href="https://forum.skylords.eu/index.php?/profile/13016-ice/">ICE</a> Copyright 2017</div></div>'
+
+                }
         });
 
         this.callParent(arguments);

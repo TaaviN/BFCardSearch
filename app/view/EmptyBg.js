@@ -51,26 +51,35 @@ Ext.define('slrcards.view.EmptyBg', {
                     bodyClass: 'pattern-bg',
                     bodyStyle: "background-color:#303030;background-image:url('img/pattern.png')",
                     items: []
-                },
-                {
-                    region: 'south',
-                    layout: 'hbox',
-                    bodyPadding: 0,
-                    border: false,
-                    height: 20,
-                    cls: 'boxshadow-top pattern-bg',
+                }
+//                {
+//                    region: 'south',
+//                    layout: 'hbox',
+//                    bodyPadding: 0,
+//                    border: false,
+//                    height: 20,
+//                    cls: 'boxshadow-top pattern-bg',
+//                    ui: 'blue',
+//                    bodyStyle: "background-image:url('img/pattern.png')  !important;",
+//                    items: [
+//                        {
+//                            xtype: 'panel', 
+//                             ui: 'blue',
+//                            html: ' Legal: Images and card text are copyright of Electronic Arts Inc. '
+//
+//                        }
+//                    ]
+//                }
+            ],
+            bbar:{
+                    xtype: 'panel',
+                    dock: 'bottom',
                     ui: 'blue',
                     bodyStyle: "background-image:url('img/pattern.png')  !important;",
-                    items: [
-                        {
-                            xtype: 'panel', 
-                             ui: 'blue',
-                            html: ' Legal: Images and card text are copyright of Electronic Arts Inc. '
+                    cls: 'pattern-bg boxshadow-top',
+                    html: '<div style="padding-left:5px;padding-bottom:3px;padding-top:2px;">Legal: Images and card text are copyright of Electronic Arts Inc. <div style="float:right;padding-right:10px">Made by <a style="color:#fff;text-decoration:none" href="https://forum.skylords.eu/index.php?/profile/13016-ice/">ICE</a> Copyright 2017</div></div>'
 
-                        }
-                    ]
                 }
-            ]
         });
 
         this.callParent(arguments);

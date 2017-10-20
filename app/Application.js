@@ -1755,6 +1755,113 @@ Ext.define('slrcards.Application', {
         return _searchArray;
 
     },
+    clearSearchAnddoCardSearchAuto: function (type, newValue) {
+        var me = this;
+
+
+        var _appArray = me.cardsArrays();
+        var searchTypes = _appArray.searchTypes;
+
+        var _appCardsSearchArray = {};
+
+        var i = 0;
+        for (i; i < searchTypes.length; i++) {
+            _appCardsSearchArray[searchTypes[i]] = window.localStorage.getItem("_appCardsSearch" + searchTypes[i]);
+            if (!me.testExists(_appCardsSearchArray[searchTypes[i]])) {
+
+                var field = Ext.first("#searchfield" + searchTypes[i]);
+                if (field) {
+                    field.checked=false;
+                }
+
+                _appCardsSearchArray[searchTypes[i]] = 0;
+            } else {
+                window.localStorage.setItem("_appCardsSearch" + searchTypes[i], '');
+                var field = Ext.first("#searchfield" + searchTypes[i]);
+                if (field) {
+                    field.checked=false;
+                }
+                _appCardsSearchArray[searchTypes[i]] = 0;
+            }
+
+        }
+        var appCardsSearchQ = window.localStorage.getItem("_appCardsSearchQuery");
+        if (!me.testExists(appCardsSearchQ)) {
+            appCardsSearchQ = '';
+            var field = Ext.first("#searchfieldquery");
+            if (field) {
+                field.setValue('');
+            }
+
+        } else {
+            window.localStorage.setItem("_appCardsSearchQuery", '');
+            appCardsSearchQ = '';
+            var field = Ext.first("#searchfieldquery");
+            if (field) {
+                field.setValue('');
+            }
+        }
+        var store = Ext.data.StoreManager.lookup("ApiCardsMain");
+        var wstore = Ext.data.StoreManager.lookup("ApiCards");
+        var range = wstore.getCount();
+        var i = 0;
+        var recordsToRemove = [];
+        for (i; i < range; i++) {
+            recordsToRemove.push(wstore.getAt(i));
+        }
+        wstore.remove(recordsToRemove);
+        var dataview = Ext.first("#cardsdataview");
+
+        var d = me.searchTermsBuildUp(_appCardsSearchArray);
+
+        var searchTerms1 = d.searchTerms1;
+        var searchTerms2 = d.searchTerms2;
+        var searchTerms3 = d.searchTerms3;
+        var searchTerms4 = d.searchTerms4;
+        var searchTerms5 = d.searchTerms5;
+        var searchTerms6 = d.searchTerms6;
+        var searchTerms7 = d.searchTerms7;
+        var searchTerms8 = d.searchTerms8;
+        var searchTerms9 = d.searchTerms9;
+
+
+
+        var records = store.queryRecordsBy(function (record, scope) {
+            var data = record.getData();
+            searchMeRec = data;
+
+            if (appCardsSearchQ !== '') {
+
+                if (me.findMatchingWordsByObj(data.Name, appCardsSearchQ) && me.buildFiltering(data, searchTerms1, searchTerms2, searchTerms3, searchTerms4, searchTerms5, searchTerms6, searchTerms7, searchTerms8, searchTerms9)) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            } else {
+                return me.buildFiltering(data, searchTerms1, searchTerms2, searchTerms3, searchTerms4, searchTerms5, searchTerms6, searchTerms7, searchTerms8, searchTerms9);
+
+            }
+
+        }, this);
+        var cardsSearchCounter = Ext.first("#cardsSearchCounter");
+        if (cardsSearchCounter) {
+            if (records.length) {
+                cardsSearchCounter.setText('' + parseInt(records.length) + '');
+            } else {
+                cardsSearchCounter.setText('' + parseInt(0) + '');
+            }
+        }
+
+        wstore.add(records);
+        me.doCardStoreSorting2();
+        dataview.refresh();
+
+        if (type == null && newValue == null) {
+            me.isSharedCards();
+        }
+
+    },
     doCardSearch: function (type, newValue) {
         var me = this;
         if (type == null && newValue == null) {

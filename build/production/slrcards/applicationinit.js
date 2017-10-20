@@ -1,14 +1,14 @@
 var ua = navigator.userAgent.toLowerCase();
 var isM = ua.indexOf("mobile") > -1; //&& ua.indexOf("mobile");
-if (isM) {
-
-    addScript('applicationmobile.js');
-    var styles = 'img {                -webkit-user-select: none; /* disable selection/Copy of UIWebView */                -webkit-touch-callout:inherit;            }           .no-right-padding-button.x-iconalign-left > .x-button-label {                padding-right: 5px !important;            }           .white-text-title .x-innerhtml {               color: #ffffff !important;           }       .low-margin-fieldset{       margin: 0.4em 1em 0.4em !important;     }   .low-margin-fieldset .x-form-fieldset-title { margin: 0.2em 0em 0.2em !important;color: #606060;}';
-
-    window.onload = function () {
-        appendStyle(styles);
-    };
-} else {
+//if (isM) {
+//
+//    addScript('applicationmobile.js');
+//    var styles = 'img {                -webkit-user-select: none; /* disable selection/Copy of UIWebView */                -webkit-touch-callout:inherit;            }           .no-right-padding-button.x-iconalign-left > .x-button-label {                padding-right: 5px !important;            }           .white-text-title .x-innerhtml {               color: #ffffff !important;           }       .low-margin-fieldset{       margin: 0.4em 1em 0.4em !important;     }   .low-margin-fieldset .x-form-fieldset-title { margin: 0.2em 0em 0.2em !important;color: #606060;}';
+//
+//    window.onload = function () {
+//        appendStyle(styles);
+//    };
+//} else {
     doCardViewFiltersFromUrl();
     addScript('application.js');
 
@@ -17,7 +17,7 @@ if (isM) {
     window.onload = function () {
         appendStyle(styles);
     };
-}
+//}
 
 function addScript(src) {
     var s = document.createElement('script');
@@ -96,13 +96,13 @@ Ext.beforeLoad = function (tags) {
     var s = location.search,
             profile;
 
-    if (isM) {
-
-        profile = 'modern';
-
-    } else {
+//    if (isM) {
+//
+//        profile = 'modern';
+//
+//    } else {
         profile = 'classic';
-    }
+//    }
 
     Ext.manifest = profile;
 
