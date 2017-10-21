@@ -12,7 +12,7 @@ Ext.define('slrcards.view.CardsEditorBorder', {
         var me = this;
         var meview = this;
         Ext.apply(this, {
-            dockedItems: [
+            tbar: 
                 {
                     xtype: 'toolbar',
                     dock: 'top',
@@ -155,7 +155,7 @@ Ext.define('slrcards.view.CardsEditorBorder', {
                     ]
                 }
 
-            ],
+            ,
             items: [
                 {
                     region: 'west',
@@ -1338,7 +1338,7 @@ Ext.define('slrcards.view.CardsEditorBorder', {
     testSort: function () {
         return this.getController().testSortEditor();
     },
-     testExists: function (item) {
+    testExists: function (item) {
 
         if ((typeof item) === "undefined" || item === null) {
             return false;

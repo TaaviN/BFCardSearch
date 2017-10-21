@@ -12,10 +12,10 @@ Ext.define('slrcards.view.EmptyBg', {
         var me = this;
         var meview = this;
         Ext.apply(this, {
-            dockedItems: [
+            tbar: 
                 {
                     xtype: 'toolbar',
-                    dock: 'top',
+                    
                     ui: 'blue',
                     cls: 'boxshadow battern-bg',
                     items: [
@@ -39,8 +39,7 @@ Ext.define('slrcards.view.EmptyBg', {
 
                         }
                     ]
-                } 
-            ],
+                } ,
             items: [
                 {
                     region: 'center',
@@ -52,28 +51,11 @@ Ext.define('slrcards.view.EmptyBg', {
                     bodyStyle: "background-color:#303030;background-image:url('img/pattern.png')",
                     items: []
                 }
-//                {
-//                    region: 'south',
-//                    layout: 'hbox',
-//                    bodyPadding: 0,
-//                    border: false,
-//                    height: 20,
-//                    cls: 'boxshadow-top pattern-bg',
-//                    ui: 'blue',
-//                    bodyStyle: "background-image:url('img/pattern.png')  !important;",
-//                    items: [
-//                        {
-//                            xtype: 'panel', 
-//                             ui: 'blue',
-//                            html: ' Legal: Images and card text are copyright of Electronic Arts Inc. '
-//
-//                        }
-//                    ]
-//                }
+ 
             ],
             bbar:{
                     xtype: 'panel',
-                    dock: 'bottom',
+                    
                     ui: 'blue',
                     bodyStyle: "background-image:url('img/pattern.png')  !important;",
                     cls: 'pattern-bg boxshadow-top',

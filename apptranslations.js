@@ -1,5 +1,8 @@
 var apptranslations = {
     'en': {
+        'github': 'GitHub',
+        'githubrepo': 'GitHub Repo',
+        'resetsearch': 'Reset search ',
         'nonupgradedcards': 'Non upgraded cards',
         'lvl1upgradecards': 'Lvl 1 upgrade cards',
         'lvl2upgradecards': 'Lvl 2 upgrade cards',

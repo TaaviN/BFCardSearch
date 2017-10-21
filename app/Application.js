@@ -2287,15 +2287,7 @@ Ext.define('slrcards.Application', {
 
         }
     },
-    onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
-                function (choice) {
-                    if (choice === 'yes') {
-                        window.location.reload();
-                    }
-                }
-        );
-    },
+     
     /*editor functions*/
     sortCardsStoreEditor: function (newValue) {
 
@@ -2437,7 +2429,18 @@ Ext.define('slrcards.Application', {
         }
 
 
-    }
+    } ,
     /*language functions end*/
+     
+    onAppUpdate: function () {
+       
+        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
+                function (choice) {
+                    if (choice === 'yes') {
+                        window.location.reload();
+                    }
+                }
+        );
+    }
 });
   

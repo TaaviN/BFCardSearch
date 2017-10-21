@@ -13,23 +13,13 @@ if ((typeof window.innerWidth) === "undefined" || window.innerWidth === null) {
     }
 }
 
-var searchbarclosable = null;
-if (w > 1800) {
-    searchbarclosable = true;
-} else if (w > 1400 && w < 1801) {
-    searchbarclosable = true;
-} else if (w > 1200 && w < 1401) {
-    searchbarclosable = true;
-} else {
-    searchbarclosable = true;
-}
+
 var addMyCardsM = false, delMyCardsM = false;
 Ext.define('slrcards.view.CardsBorder', {
     extend: 'Ext.panel.Panel',
     xtype: 'cardsborder',
     alias: 'widget.cardsborder',
     itemId: 'cardsborder',
-    requires: [],
     controller: 'mainc',
     viewModel: 'mainm',
     layout: 'border',
@@ -37,10 +27,10 @@ Ext.define('slrcards.view.CardsBorder', {
         var me = this;
         var meview = this;
         Ext.apply(this, {
-            dockedItems: [
+            tbar:  
                 {
                     xtype: 'toolbar',
-                    dock: 'top',
+                    
                     ui: 'blue',
                     cls: 'boxshadow battern-bg',
                     items: [
@@ -606,8 +596,7 @@ Ext.define('slrcards.view.CardsBorder', {
                         }
 
                     ]
-                } 
-            ],
+                } ,
             items: [
                 {
                     region: 'west',
@@ -615,7 +604,7 @@ Ext.define('slrcards.view.CardsBorder', {
                     title: meview.getLngString('Search'),
                     iconCls: 'fa fa-search',
                     collapsed: false,
-                    collapsible: searchbarclosable,
+                    collapsible: true,
                     itemId: 'westsidesearchtitle',
                     reference: 'searchContainer',
                     layout: 'fit',
@@ -2091,7 +2080,7 @@ Ext.define('slrcards.view.CardsBorder', {
             ],
             bbar:{
                     xtype: 'panel',
-                    dock: 'bottom',
+                    
                     ui: 'blue',
                     bodyStyle: "background-image:url('img/pattern.png')  !important;",
                     cls: 'pattern-bg boxshadow-top',

@@ -12,10 +12,9 @@ Ext.define('slrcards.view.MapsBorder', {
         var me = this;
         var meview = this;
         Ext.apply(this, {
-            dockedItems: [
+            tbar: 
                 {
-                    xtype: 'toolbar',
-                    dock: 'top',
+                    xtype: 'toolbar', 
                     ui: 'blue',
                     cls: 'boxshadow battern-bg',
                     items: [
@@ -47,7 +46,7 @@ Ext.define('slrcards.view.MapsBorder', {
                         }
                     ]
                 } 
-            ],
+            ,
             items: [
                 {
                     region: 'center',
@@ -63,21 +62,10 @@ Ext.define('slrcards.view.MapsBorder', {
                             xtype: "mapsdataview"
                         }
                     ]
-                },
-                {
-                    region: 'south',
-                    layout: 'hbox',
-                    bodyPadding: 0,
-                    border: false,
-                    height: 0,
-                    cls: 'boxshadow-top pattern-bg',
-                    items: [
-                    ]
-                }
+                } 
             ],
             bbar:{
-                    xtype: 'panel',
-                    dock: 'bottom',
+                    xtype: 'panel', 
                     ui: 'blue',
                     bodyStyle: "background-image:url('img/pattern.png')  !important;",
                     cls: 'pattern-bg boxshadow-top',
